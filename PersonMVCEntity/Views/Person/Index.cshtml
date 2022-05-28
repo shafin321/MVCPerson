@@ -1,0 +1,45 @@
+﻿@model   PersonMVCEntity.ViewModel.PersonIndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-controller="Person" asp-action="Index" method="get">
+    <p>
+        Title: <input type="search" name="SearchTearm" />
+        <button type="submit">search </button>
+
+        @*<input type="submit" value="Filter" />*@
+    </p>
+</form>
+
+<a asp-controller="Person" asp-action="Create"  class="btn btn-primary">Create</a>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>City </th>
+            <th>    </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PersonList)
+        {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Phone</td>
+            <td>@item.City</td>
+
+          @*  <td>
+                <a class="btn btn-primary" asp-page="./Detail" asp-route-id="@item.Id">Detail</a>
+            </td>*@
+
+            
+        </tr>
+        }
+
+    </tbody>
+</table>
